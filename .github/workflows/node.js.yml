@@ -11,7 +11,7 @@ on:
     branches: [ master ]
 
 jobs:
-  working-directory: ./apis/userprofile
+  
   build:
 
     runs-on: ubuntu-latest
@@ -27,5 +27,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
+      working-directory: ./apis/userprofile
     - run: npm run build --if-present
     - run: npm test
+      working-directory: ./apis/userprofile
