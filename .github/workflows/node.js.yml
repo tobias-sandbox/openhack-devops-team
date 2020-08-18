@@ -2,12 +2,11 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: Node.js CI
+working-directory: ./apis/userprofile/
 
 on:
   push:
     branches: [ master ]
-    paths:
-      -'apis/userprofile/'
   pull_request:
     branches: [ master ]
 
