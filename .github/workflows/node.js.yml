@@ -2,7 +2,7 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: Node.js CI
-working-directory: ./apis/userprofile/
+
 
 on:
   push:
@@ -11,6 +11,7 @@ on:
     branches: [ master ]
 
 jobs:
+  working-directory: ./apis/userprofile/
   build:
 
     runs-on: ubuntu-latest
