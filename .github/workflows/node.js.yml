@@ -11,22 +11,26 @@ on:
     branches: [ master ]
 
 jobs:
-  
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [13.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    # checkout the repo
+    - name: 'Checkout Github Action' 
+      uses: actions/checkout@master
+    
+    - name: Setup Node 13.x
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '13.x'
+    - name: 'npm install, build, and test'
     - run: npm ci
       working-directory: ./apis/userprofile
     - run: npm test
       working-directory: ./apis/userprofile
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: node-rn
+        publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+        
