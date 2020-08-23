@@ -23,9 +23,9 @@ jobs:
       with:
         node-version: '13.x'
     - name: 'npm install, build, and test'
-      run: npm ci
-      working-directory: ./apis/userprofile
-      run: npm test
+      run: | 
+        npm ci
+        npm test
       working-directory: ./apis/userprofile
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
