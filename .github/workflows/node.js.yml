@@ -32,6 +32,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       with: 
         app-name: openhackcy50wpt9userprofile
-        slot-name: staging
+        slot-name: openhackcy50wpt9userprofile-staging 
         publish-profile: ${{ secrets.azureWebAppPublishProfile }}
         
