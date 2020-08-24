@@ -31,7 +31,6 @@ jobs:
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v2
       with: 
-        app-name: openhackcy50wpt9userprofile-staging
-        slot-name:  production
+        app-name: openhackcy50wpt9userprofile/staging
         publish-profile: ${{ secrets.azureWebAppPublishProfile }}
         
